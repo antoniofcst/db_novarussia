@@ -8,7 +8,7 @@ conexao = psycopg2.connect(user='postgres',
                            port='5432',
                            database='NovaRussiaV2')
 # utilizando o cursor
-cursor = conexao.cursor()
+cursor = conexao.cursor() 
 
 # criando sentença de insert sql
 sqlInsert = 'INSERT INTO Professor(cod_professor, nome_professor, sobrenome_professor) VALUES(%s, %s, %s)'

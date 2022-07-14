@@ -11,13 +11,14 @@ conexao = psycopg2.connect(user='postgres',
 cursor = conexao.cursor()
 
 # criando sentenças de consulta sql
-sqlConsulta = 'SELECT Carga_Horaria, Cod_Departamento FROM Disciplina, Departamento WHERE Disciplina.Cod_Departamento = Departamento.Cod_Departamento' 
-
+sqlConsulta = 'SELECT * FROM Departamento WHERE cod_departamento=%s' 
+# solicitar dados do usuário 
+cod_departamento = input('Digite o código do departamento: ')
 # utilizando método execute
-cursor.execute(sqlConsulta)
+cursor.execute(sqlConsulta, cod_departamento)
 
 # mostrar resultado
-registroConsulta = cursor.fetchall() # obtemos todos os dados
+registroConsulta = cursor.fetchone() 
 print(registroConsulta)
 
 
